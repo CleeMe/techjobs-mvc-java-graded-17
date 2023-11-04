@@ -23,10 +23,18 @@ public class JobData {
     private static boolean isDataLoaded = false;
 
     private static ArrayList<Job> allJobs;
-    private static ArrayList<Employer> allEmployers = new ArrayList<>();
-    private static ArrayList<Location> allLocations = new ArrayList<>();
-    private static ArrayList<PositionType> allPositionTypes = new ArrayList<>();
-    private static ArrayList<CoreCompetency> allCoreCompetency = new ArrayList<>();
+    private static ArrayList<Employer> allEmployers;
+    private static ArrayList<Location> allLocations;
+    private static ArrayList<PositionType> allPositionTypes;
+    private static ArrayList<CoreCompetency> allCoreCompetency;
+
+    static {
+        allJobs = new ArrayList<>();
+        allEmployers = new ArrayList<>();
+        allLocations = new ArrayList<>();
+        allPositionTypes = new ArrayList<>();
+        allCoreCompetency = new ArrayList<>();
+    }
 
     /**
      * Fetch list of all job objects from loaded data,
@@ -139,7 +147,7 @@ public class JobData {
     /**
      * Read in data from a CSV file and store it in an ArrayList of Job objects.
      */
-    private static void loadData() {
+    public static void loadData() {
 
         // Only load data once
         if (isDataLoaded) {
@@ -147,7 +155,7 @@ public class JobData {
         }
 
         try {
-
+                    String DATA_FILE = "job_data.csv";
             // Open the CSV file and set up pull out column header info and records
             Resource resource = new ClassPathResource(DATA_FILE);
             InputStream is = resource.getInputStream();
