@@ -18,17 +18,17 @@
         <th>Employer</th>
         <th>Location</th>
         <th>Position Type</th>
-        <th>Core Competency</th>
+        <th>Skill</th>
       </tr>
     </thead>
 
   <tbody>
   <tr th:each="job : ${jobs}">
-    <td th:text="${job.id}"></td>
-    <td th:text="${job.employer.toString()}"></td>
-    <td th:text="${job.location.toString()}"></td>
-    <td th:text="${job.positionType.toString()}"></td>
-    <td th:text="${job.coreCompetency.toString()}"></td>
+    <td th:text="${job.id}">ID</td>
+    <td th:text="${job.employer.toString()}">Employer</td>
+    <td th:text="${job.location.toString()}">Location</td>
+    <td th:text="${job.positionType.toString()}">Position Type</td>
+    <td th:text="${job.coreCompetency.toString()}">Skiill</td>
   </tr>
   </tbody>
   </table>
