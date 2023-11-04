@@ -13,7 +13,7 @@
 
 <table class="centeredTable">
   <tr>
-    <th:block th:each="column : ${columns}">
+    <th:block th:each="column : ${columnChoices}">
       <th th:text = "${column.value}"></th>
     </th:block>
   </tr>
