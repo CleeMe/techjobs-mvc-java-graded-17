@@ -5,6 +5,7 @@ import org.launchcode.techjobsmvc.models.JobData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,16 +19,24 @@ import static org.launchcode.techjobsmvc.controllers.ListController.columnChoice
  * Created by LaunchCode
  */
 @Controller
-
 public class SearchController {
+    @GetMapping("/search")
+    public String searchForm(Model model) {
+        model.addAttribute("columnChoices", ListController.columnChoices);
+        return "search";
+    }
+    @PostMapping("/search/results")
+    public String displaySearchResults(
+            @RequestParam("searchType") String searchType,
+            @RequestParam("searchTerm") String  searchTerm,
+            Model model) {
 
-    @GetMapping("/search/results")
-    public String displaySearchResults(@RequestParam("searchType") String type, @RequestParam("searchTerm") String  term, Model model) {
         ArrayList<Job>  jobs;
-        if ("all".equals(type) || term.isEmpty()) {
+
+        if ("all".equals(searchType) || searchTerm.isEmpty()) {
             jobs = JobData.findAll();
         } else {
-            jobs = JobData.findByColumnAndValue(type, term);
+            jobs = JobData.findByColumnAndValue(searchType, searchTerm);
         }
         model.addAttribute("jobs", jobs);
         model.addAttribute("columnChoices", columnChoices);
