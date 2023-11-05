@@ -40,10 +40,10 @@
  <ul th:if="${jobs}">
      <li th:each="job: ${jobs}">
          <h2 th:text="${job.name}"></h2>
-         <p th:text="${job.employer.name}"></p>
-         <p th:text="${job.location.name}"></p>
-         <p th:text="${job.positionType.name}"></p>
-         <p th:text="${job.coreCompetency.name}"></p>
+         <p th:text="${job.getEmployer}"></p>
+         <p th:text="${job.getLocation}"></p>
+         <p th:text="${job.getPositionType}"></p>
+         <p th:text="${job.getCoreCompetency}"></p>
      </li>
  </ul>
 </div>

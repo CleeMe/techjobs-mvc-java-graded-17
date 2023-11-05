@@ -14,12 +14,15 @@ import java.util.List;
 
 import static org.launchcode.techjobsmvc.controllers.ListController.columnChoices;
 
-
 /**
  * Created by LaunchCode
  */
 @Controller
 public class SearchController {
+    private String searchType;
+    private String searchTerm;
+    private Model model;
+
     @GetMapping("/search")
     public String searchForm(Model model) {
         model.addAttribute("columnChoices", ListController.columnChoices);
