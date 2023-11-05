@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}">
+
 </head>
 <body>
 
@@ -12,7 +13,15 @@
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
   <table class="job-listing">
-    <tbody>
+
+    <tr>
+      <th>Job ID</th>
+      <th>Employer</th>
+      <th>Location</th>
+      <th>Position Type</th>
+      <th>Skill</th>
+    </tr>
+
     <tr th:each="job : ${jobs}">
       <th:block th:if="${not #lists.isEmpty(jobs)}">
         <td th:text="${job.id}">ID</td>
@@ -25,7 +34,7 @@
         <td colspan="5">No jobs found.</td>
       </th:block>
     </tr>
-    </tbody>
+
 
   </table>
 </div>
