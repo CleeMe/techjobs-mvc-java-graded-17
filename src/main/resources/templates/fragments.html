@@ -27,37 +27,36 @@
     </div>
 </div>
 
-<div th:fragment="list-jobs" class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <!-- TODO #1 - Use a loop to display job results in a table. -->
-    <th:block th:each="job : ${jobs}">
+
+    <th:block th:fragment="job-tab;es" th:each="job : ${jobs}">
         <table class="job-listing">
 
             <tr>
                 <th>ID</th>
-                <td th:text="${job.id}">ID</td>
+                <td th:text="${job.getID()}"></td>
             </tr>
             <tr>
                 <th>NAME</th>
-                <td th:text="${job.getName}">ID</td>
+                <td th:text="${job.getName()}"></td>
             </tr>
             <tr>
                 <th>Employer</th>
-                <td th:text="${job.getEmployer}">Employer</td>
+                <td th:text="${job.getEmployer()}"></td>
             </tr>
             <tr>
                 <th>Location</th>
-                <td th:text="${job.getLocation}">Location</td>
+                <td th:text="${job.getLocation()}"></td>
             </tr>
             <tr>
                 <th>Position Type</th>
-                <td th:text="${job.getPositionType}">Position Type</td>
+                <td th:text="${job.getPositionType()}"></td>
             </tr>
             <tr>
                 <th>Skill</th>
-                <td th:text="${job.getCoreCompetency}">Skill</td>
+                <td th:text="${job.getCoreCompetency()}"></td>
             </tr>
         </table>
     </th:block>
