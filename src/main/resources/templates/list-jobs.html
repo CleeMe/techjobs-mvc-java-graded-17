@@ -6,8 +6,13 @@
 <body>
 
 <div th:replace="~{fragments :: page-header}"></div>
+
+<div class= "container body-content">
+
+<h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
 <div th:replace="~{fragments :: job-tables}"></div>
 
-
+</div>
 </body>
 </html>

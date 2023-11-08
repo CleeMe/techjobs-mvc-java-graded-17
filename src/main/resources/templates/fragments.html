@@ -27,35 +27,31 @@
     </div>
 </div>
 
-
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
-
-    <th:block th:fragment="job-tab;es" th:each="job : ${jobs}">
+    <th:block th:fragment="job-tables" th:each="job : ${jobs}">
         <table class="job-listing">
 
             <tr>
-                <th>ID</th>
-                <td th:text="${job.getID()}"></td>
+                <td>ID</td>
+                <td th:text="${job.getId()}"></td>
             </tr>
             <tr>
-                <th>NAME</th>
+                <td>Name</td>
                 <td th:text="${job.getName()}"></td>
             </tr>
             <tr>
-                <th>Employer</th>
+                <td>Employer</td>
                 <td th:text="${job.getEmployer()}"></td>
             </tr>
             <tr>
-                <th>Location</th>
+                <td>Location</td>
                 <td th:text="${job.getLocation()}"></td>
             </tr>
             <tr>
-                <th>Position Type</th>
+                <td>Position Type</td>
                 <td th:text="${job.getPositionType()}"></td>
             </tr>
             <tr>
-                <th>Skill</th>
+                <td>Skill</td>
                 <td th:text="${job.getCoreCompetency()}"></td>
             </tr>
         </table>
@@ -64,8 +60,6 @@
     <tr th:if="${#lists.isEmpty(jobs)}">
         <td colspan="5">No jobs found.</td>
     </tr>
-
-</div>
 
 </body>
 </html>
